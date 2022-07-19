@@ -5,13 +5,34 @@
 	<script>
 		function setSearchEngine(){
 			console.log('search test')
-			document.querySelector(input[name=engine]:checked)
+			let form = document.getElementById('searchForm');
+			let engine = document.querySelector(input[name=engine]:checked);
+			let query = document.querySelector(input[name=q]);
+			let action ={
+				'bing': 'https://bing.com/search/',
+				'google': 'htts://google.com/search/',
+				'duckDuckGo': 'https://duckduckgo.com/',
+				'ask': 'https://ask.com/web'
 
+			}
+			if(query.trim === ''){
+				event.preventDefault();
+				alert('Please enter a search term');
+				return
+			}
+			if(engine === null()){
+				
+			}
+
+			form.setAttribute('action',action)
 		}
+		
     window.addEventListener("load", function(){
-        // TODO: register the handler
-		setSearchEngine()
-		//input[name=engine]:checked
+        let form = document.getElementById('searchForm')
+		form.addEventListener('submit', setSearchEngine)
+		
+		
+
     });
 	</script>
 </head>
